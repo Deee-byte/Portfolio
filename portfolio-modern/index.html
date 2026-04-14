@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Charles Andre Alde – Full-Stack Developer & UI/UX Designer. Explore projects, skills, and get in touch." />
+    <meta name="keywords" content="portfolio, developer, full-stack, UI/UX, TypeScript, React" />
+    <meta name="author" content="Charles Andre Alde" />
+    <title>Charles Andre Alde | Full-Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body class="bg-[#05050f] text-white font-inter overflow-x-hidden">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#hero" id="nav-logo" class="font-outfit text-2xl font-bold tracking-tight">
+          <span class="text-white">Cha</span><span class="gradient-text">rles.</span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <ul id="nav-links" class="hidden md:flex items-center gap-8">
+          <li><a href="#about"    class="nav-link" id="nl-about">About</a></li>
+          <li><a href="#projects" class="nav-link" id="nl-projects">Projects</a></li>
+          <li><a href="#skills"   class="nav-link" id="nl-skills">Skills</a></li>
+          <li><a href="#contact"  class="nav-link" id="nl-contact">Contact</a></li>
+        </ul>
+
+        <!-- CTA + Hamburger -->
+        <div class="flex items-center gap-4">
+          <a href="#contact" class="hidden md:inline-flex btn-primary text-sm" id="nav-cta">
+            Hire Me
+          </a>
+          <button id="hamburger" aria-label="Open menu" class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/5 transition-colors">
+            <span class="ham-bar"></span>
+            <span class="ham-bar"></span>
+            <span class="ham-bar"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <aside id="mobile-menu" class="fixed top-0 right-0 z-50 h-full w-72 bg-[#0d0d1f] border-l border-white/10 flex flex-col pt-24 px-8 gap-6 translate-x-full transition-transform duration-400 ease-out">
+      <button id="close-menu" aria-label="Close menu" class="absolute top-5 right-6 text-white/60 hover:text-white transition-colors text-2xl">✕</button>
+      <a href="#about"    class="mobile-nav-link" id="mnl-about">About</a>
+      <a href="#projects" class="mobile-nav-link" id="mnl-projects">Projects</a>
+      <a href="#skills"   class="mobile-nav-link" id="mnl-skills">Skills</a>
+      <a href="#contact"  class="mobile-nav-link" id="mnl-contact">Contact</a>
+      <a href="#contact"  class="btn-primary text-center mt-4" id="mnl-hire">Hire Me</a>
+    </aside>
+
+    <!-- ========== HERO ========== -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <!-- Ambient background -->
+      <div class="ambient-bg"></div>
+      <div class="noise-overlay"></div>
+
+      <div class="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
+
+        <!-- Left: text -->
+        <div class="hero-left space-y-6">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Available for work
+          </div>
+
+          <h1 class="hero-heading opacity-0 translate-y-8">
+            Hi, I'm <br />
+            <span class="gradient-text block">Charles Andre</span>
+          </h1>
+
+          <!-- Typing effect target -->
+          <p class="text-xl text-white/60 font-light opacity-0 translate-y-8 hero-sub">
+            I'm a&nbsp;<span id="typing-target" class="text-white font-medium"></span><span class="typing-cursor">|</span>
+          </p>
+
+          <p class="text-base text-white/50 leading-relaxed max-w-md opacity-0 translate-y-8 hero-desc">
+            I'm a student learning web development. I'm still practicing and not a professional yet, but I enjoy building small projects and learning more every day.
+          </p>
+
+          <div class="flex flex-wrap gap-4 opacity-0 translate-y-8 hero-btns">
+            <a href="#projects" class="btn-primary" id="hero-view-projects">View Projects</a>
+            <a href="#contact"  class="btn-outline" id="hero-contact-me">Contact Me</a>
+          </div>
+
+          <!-- Social links -->
+          <div class="flex gap-4 mt-2 opacity-0 hero-social">
+            <a href="#" id="social-github"   class="social-icon" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+            <a href="#" id="social-linkedin" class="social-icon" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" id="social-twitter" class="social-icon" aria-label="Twitter/X">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: image -->
+        <div class="hero-right flex justify-center items-center">
+          <div class="profile-wrapper">
+            <div class="profile-ring"></div>
+            <div class="profile-glow"></div>
+            <img
+              src="/profile.png"
+              alt="Charles Andre Alde — Full-Stack Developer"
+              id="profile-img"
+              class="profile-img opacity-0 scale-90"
+            />
+            <!-- floating blobs -->
+            <div class="float-badge float-badge-ts">TS</div>
+            <div class="float-badge float-badge-react">React</div>
+            <div class="float-badge float-badge-php">PHP</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <p class="text-white/30 text-xs mt-2 text-center">Scroll</p>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="section-pad relative">
+      <div class="section-glow section-glow-purple"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="section-header reveal-up">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">Crafting Digital <span class="gradient-text">Experiences</span></h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-16 items-center mt-16">
+          <div class="space-y-6 reveal-left">
+            <p class="text-white/70 text-lg leading-relaxed">
+              I'm a student learning web development. I'm still building my skills and working on small projects to learn more.
+            </p>
+            <p class="text-white/60 leading-relaxed">
+              I know a little HTML, CSS, and JavaScript, and I'm practicing frameworks like React. I'm open to feedback and eager to improve.
+            </p>
+            <p class="text-white/60 leading-relaxed">
+              When I'm not coding, I like designing simple interfaces and experimenting with small animations to learn more.
+            </p>
+
+            <div class="flex flex-wrap gap-3 mt-4">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Laravel</span>
+              <span class="skill-tag">Flutter</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Tailwind CSS</span>
+            </div>
+          </div>
+
+          <!-- Stats grid -->
+          <div class="grid grid-cols-2 gap-4 reveal-right">
+            <div class="stat-card" id="stat-projects">
+              <div class="stat-number gradient-text">20+</div>
+              <div class="stat-label">Projects Built</div>
+            </div>
+            <div class="stat-card" id="stat-experience">
+              <div class="stat-number gradient-text">3+</div>
+              <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-card" id="stat-clients">
+              <div class="stat-number gradient-text">15+</div>
+              <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-card" id="stat-commits">
+              <div class="stat-number gradient-text">500+</div>
+              <div class="stat-label">Git Commits</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section id="projects" class="section-pad relative">
+      <div class="section-glow section-glow-blue"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Portfolio</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+
+          <!-- Project Card 1 -->
+          <article class="project-card reveal-up stagger-1" id="proj-loom">
+            <div class="project-img-wrap">
+              <div class="project-img-placeholder" style="background: linear-gradient(135deg,#1a0a2e,#0f3460);">
+                <svg class="w-12 h-12 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+              </div>
+              <div class="project-overlay">
+                <a href="#" id="proj-loom-live" class="project-btn">Live Demo</a>
+                <a href="#" id="proj-loom-github" class="project-btn project-btn-outline">GitHub</a>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="project-tag">Flutter</span>
+                <span class="project-tag">PHP</span>
+                <span class="project-tag">MySQL</span>
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">Project Loom</h3>
+              <p class="text-white/50 text-sm leading-relaxed">A modern service marketplace platform connecting service providers with clients, built with Flutter and a PHP backend.</p>
+            </div>
+          </article>
+
+          <!-- Project Card 2 -->
+          <article class="project-card reveal-up stagger-2" id="proj-ecommerce">
+            <div class="project-img-wrap">
+              <div class="project-img-placeholder" style="background: linear-gradient(135deg,#0a1628,#0d3b2e);">
+                <svg class="w-12 h-12 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              </div>
+              <div class="project-overlay">
+                <a href="#" id="proj-ecom-live" class="project-btn">Live Demo</a>
+                <a href="#" id="proj-ecom-github" class="project-btn project-btn-outline">GitHub</a>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="project-tag">Laravel</span>
+                <span class="project-tag">Vue.js</span>
+                <span class="project-tag">Chart.js</span>
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">E-Commerce Analytics</h3>
+              <p class="text-white/50 text-sm leading-relaxed">Full-featured e-commerce platform with predictive analytics, descriptive dashboards, and prescriptive recommendations.</p>
+            </div>
+          </article>
+
+          <!-- Project Card 3 -->
+          <article class="project-card reveal-up stagger-3" id="proj-mis">
+            <div class="project-img-wrap">
+              <div class="project-img-placeholder" style="background: linear-gradient(135deg,#1a0f00,#3d1800);">
+                <svg class="w-12 h-12 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <div class="project-overlay">
+                <a href="#" id="proj-mis-live" class="project-btn">Live Demo</a>
+                <a href="#" id="proj-mis-github" class="project-btn project-btn-outline">GitHub</a>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="project-tag">PHP</span>
+                <span class="project-tag">Laravel</span>
+                <span class="project-tag">Blade</span>
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">MIS Ticket System</h3>
+              <p class="text-white/50 text-sm leading-relaxed">A management information system for tracking IT support tickets with role-based access and real-time notifications.</p>
+            </div>
+          </article>
+
+          <!-- Project Card 4 -->
+          <article class="project-card reveal-up stagger-1" id="proj-pm">
+            <div class="project-img-wrap">
+              <div class="project-img-placeholder" style="background: linear-gradient(135deg,#0f1a0a,#1a3a0f);">
+                <svg class="w-12 h-12 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+              </div>
+              <div class="project-overlay">
+                <a href="#" id="proj-pm-live" class="project-btn">Live Demo</a>
+                <a href="#" id="proj-pm-github" class="project-btn project-btn-outline">GitHub</a>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="project-tag">PHP</span>
+                <span class="project-tag">MySQL</span>
+                <span class="project-tag">Bootstrap</span>
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">Project Management System</h3>
+              <p class="text-white/50 text-sm leading-relaxed">A comprehensive PM tool with task assignment, progress tracking, Gantt charts, and team collaboration features.</p>
+            </div>
+          </article>
+
+          <!-- Project Card 5 -->
+          <article class="project-card reveal-up stagger-2" id="proj-cleaning">
+            <div class="project-img-wrap">
+              <div class="project-img-placeholder" style="background: linear-gradient(135deg,#0d1a2e,#051a3a);">
+                <svg class="w-12 h-12 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+              </div>
+              <div class="project-overlay">
+                <a href="#" id="proj-clean-live" class="project-btn">Live Demo</a>
+                <a href="#" id="proj-clean-github" class="project-btn project-btn-outline">GitHub</a>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="project-tag">Flutter</span>
+                <span class="project-tag">PHP</span>
+                <span class="project-tag">REST API</span>
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">Cleaning Service Platform</h3>
+              <p class="text-white/50 text-sm leading-relaxed">Mobile-first cleaning service booking app with admin dashboard, service scheduling, and payment integration.</p>
+            </div>
+          </article>
+
+          <!-- Project Card 6 – CTA -->
+          <article class="project-card-cta reveal-up stagger-3" id="proj-more">
+            <div class="text-center space-y-4">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mx-auto text-2xl bounce-icon">🚀</div>
+              <h3 class="text-xl font-semibold text-white">More Coming Soon</h3>
+              <p class="text-white/50 text-sm">I'm constantly building new things. Check my GitHub for the latest work.</p>
+              <a href="#" id="proj-github-all" class="btn-outline inline-flex text-sm">View GitHub →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+    <section id="skills" class="section-pad relative">
+      <div class="section-glow section-glow-mixed"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Expertise</span>
+          <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mt-16">
+
+          <!-- Frontend -->
+          <div class="skill-group reveal-up stagger-1">
+            <div class="skill-group-header">
+              <span class="skill-group-icon">🎨</span>
+              <h3 class="skill-group-title">Frontend</h3>
+            </div>
+            <div class="space-y-4">
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">React / TypeScript</span><span class="text-indigo-400 text-sm font-medium">90%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90" style="width:0%"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">Tailwind CSS</span><span class="text-indigo-400 text-sm font-medium">95%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="95" style="width:0%"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">HTML / CSS</span><span class="text-indigo-400 text-sm font-medium">98%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="98" style="width:0%"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">Vue.js</span><span class="text-indigo-400 text-sm font-medium">75%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="75" style="width:0%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div class="skill-group reveal-up stagger-2">
+            <div class="skill-group-header">
+              <span class="skill-group-icon">⚙️</span>
+              <h3 class="skill-group-title">Backend</h3>
+            </div>
+            <div class="space-y-4">
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">Laravel / PHP</span><span class="text-purple-400 text-sm font-medium">88%</span></div>
+                <div class="skill-bar"><div class="skill-fill skill-fill-purple" data-width="88" style="width:0%"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">Node.js</span><span class="text-purple-400 text-sm font-medium">80%</span></div>
+                <div class="skill-bar"><div class="skill-fill skill-fill-purple" data-width="80" style="width:0%"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">MySQL / PostgreSQL</span><span class="text-purple-400 text-sm font-medium">85%</span></div>
+                <div class="skill-bar"><div class="skill-fill skill-fill-purple" data-width="85" style="width:0%"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">REST APIs</span><span class="text-purple-400 text-sm font-medium">92%</span></div>
+                <div class="skill-bar"><div class="skill-fill skill-fill-purple" data-width="92" style="width:0%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & Other -->
+          <div class="skill-group reveal-up stagger-3">
+            <div class="skill-group-header">
+              <span class="skill-group-icon">🛠️</span>
+              <h3 class="skill-group-title">Tools & Mobile</h3>
+            </div>
+            <div class="space-y-4">
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">Flutter / Dart</span><span class="text-pink-400 text-sm font-medium">82%</span></div>
+                <div class="skill-bar"><div class="skill-fill skill-fill-pink" data-width="82" style="width:0%"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">Git / GitHub</span><span class="text-pink-400 text-sm font-medium">90%</span></div>
+                <div class="skill-bar"><div class="skill-fill skill-fill-pink" data-width="90" style="width:0%"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">Figma / UI Design</span><span class="text-pink-400 text-sm font-medium">78%</span></div>
+                <div class="skill-bar"><div class="skill-fill skill-fill-pink" data-width="78" style="width:0%"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="flex justify-between mb-1"><span class="text-white/70 text-sm">Docker / CI/CD</span><span class="text-pink-400 text-sm font-medium">70%</span></div>
+                <div class="skill-bar"><div class="skill-fill skill-fill-pink" data-width="70" style="width:0%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech icon pills -->
+        <div class="flex flex-wrap justify-center gap-4 mt-16 reveal-up">
+          <div class="tech-pill">🌐 HTML5</div>
+          <div class="tech-pill">🎨 CSS3</div>
+          <div class="tech-pill">⚡ JavaScript</div>
+          <div class="tech-pill">🔷 TypeScript</div>
+          <div class="tech-pill">⚛️ React</div>
+          <div class="tech-pill">🟢 Vue.js</div>
+          <div class="tech-pill">🐘 PHP</div>
+          <div class="tech-pill">🔴 Laravel</div>
+          <div class="tech-pill">💎 Flutter</div>
+          <div class="tech-pill">🐱 Git</div>
+          <div class="tech-pill">🐳 Docker</div>
+          <div class="tech-pill">🗄️ MySQL</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="section-pad relative">
+      <div class="section-glow section-glow-purple"></div>
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Get In Touch</span>
+          <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mt-16 items-start">
+          <!-- Contact info -->
+          <div class="space-y-6 reveal-left">
+            <p class="text-white/60 leading-relaxed">
+              I'm currently open to exciting opportunities, freelance projects, and collaborations. Whether you have a project in mind or just want to say hi — my inbox is always open!
+            </p>
+            <div class="space-y-4">
+              <a href="mailto:alde.charles22@gmail.com" id="contact-email" class="contact-info-row">
+                <div class="contact-info-icon">📧</div>
+                <div>
+                  <div class="text-white font-medium text-sm">Email</div>
+                  <div class="text-white/50 text-sm">alde.charles22@gmail.com</div>
+                </div>
+              </a>
+              <a href="https://facebook.com/charlesald" id="contact-facebook" class="contact-info-row" target="_blank" rel="noopener noreferrer">
+                <div class="contact-info-icon">📘</div>
+                <div>
+                  <div class="text-white font-medium text-sm">Facebook</div>
+                  <div class="text-white/50 text-sm">facebook.com/charlesald</div>
+                </div>
+              </a>
+              <div class="contact-info-row">
+                <div class="contact-info-icon">📍</div>
+                <div>
+                  <div class="text-white font-medium text-sm">Location</div>
+                  <div class="text-white/50 text-sm">Philippines 🇵🇭</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <form id="contact-form" class="glass-card p-6 space-y-4 reveal-right" novalidate>
+            <div>
+              <label for="contact-name" class="form-label">Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Your name" class="form-input" required />
+            </div>
+            <div>
+              <label for="contact-email-input" class="form-label">Email</label>
+              <input type="email" id="contact-email-input" name="email" placeholder="your@email.com" class="form-input" required />
+            </div>
+            <div>
+              <label for="contact-message" class="form-label">Message</label>
+              <textarea id="contact-message" name="message" rows="4" placeholder="Tell me about your project..." class="form-input resize-none" required></textarea>
+            </div>
+            <button type="submit" id="contact-submit" class="btn-primary w-full justify-center">
+              Send Message 🚀
+            </button>
+            <div id="form-success" class="hidden text-center text-emerald-400 text-sm font-medium py-2">
+              ✅ Message sent! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="border-t border-white/5 py-10">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="font-outfit text-xl font-bold">
+          <span class="text-white">Cha</span><span class="gradient-text">rles.</span>
+        </div>
+        <p class="text-white/30 text-sm">© 2026 Charles Andre Alde. Built with ❤️ & TypeScript.</p>
+        <div class="flex gap-4">
+          <a href="#" id="footer-github"   class="social-icon" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a href="#" id="footer-linkedin" class="social-icon" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/scripts/main.ts"></script>
+  </body>
+</html>
