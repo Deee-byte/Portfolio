@@ -35,8 +35,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        # Project Pages needs the repo name as base path
-        run: npm run build -- --base=/Portfolio/
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
