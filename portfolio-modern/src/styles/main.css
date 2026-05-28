@@ -367,12 +367,11 @@ body {
   100% { opacity: 0; transform: translateY(10px); }
 }
 
-/* Social icons */
+/* Hero Buttons */
 .hero-btns {
   display: flex;
-  gap: 1rem;
+  gap: 0.875rem;
   align-items: center;
-  margin-top: 0.5rem;
   flex-wrap: wrap;
 }
 .hero-btns .btn-primary,
@@ -386,7 +385,6 @@ body {
 .hero-social {
   display: flex;
   gap: 0.75rem;
-  margin-top: 0.75rem;
   align-items: center;
 }
 .social-icon {
@@ -410,18 +408,6 @@ body {
   color: #818cf8;
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(99,102,241,0.25);
-}
-
-@media (max-width: 640px) {
-  .hero-btns { gap: 0.6rem; }
-  .hero-social { gap: 0.5rem; margin-top: 0.6rem; }
-  .hero-btns .btn-primary, .hero-btns .btn-outline { min-height: auto; }
-}
-
-/* Increase gap between hero buttons and social icons to avoid overlap
-   Use a more specific selector to override Tailwind's space utilities. */
-.hero-left > .hero-social {
-  margin-top: 1.5rem !important;
 }
 
 /* ──────────────────────────────────────────
@@ -521,37 +507,24 @@ body {
 }
 .project-card:hover .project-img-placeholder { transform: scale(1.06); }
 
+/* Project overlay — no buttons, just a subtle glow tint on hover */
 .project-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(5,5,15,0.85);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+  background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(168,85,247,0.08));
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 .project-card:hover .project-overlay { opacity: 1; }
 
+/* Keep .project-btn styles for potential future use but hide from overlay */
 .project-btn {
-  padding: 0.5rem 1.1rem;
-  border-radius: 0.6rem;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  color: #fff;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
+  display: none;
 }
-.project-btn:hover { transform: scale(1.05); box-shadow: 0 0 16px rgba(99,102,241,0.5); }
 .project-btn-outline {
-  background: transparent;
-  border: 1.5px solid rgba(255,255,255,0.3);
-  color: rgba(255,255,255,0.8);
+  display: none;
 }
-.project-btn-outline:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.08); }
 
 .project-tag {
   padding: 0.2rem 0.65rem;
@@ -738,4 +711,120 @@ body {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* ──────────────────────────────────────────
+   MOBILE RESPONSIVE
+────────────────────────────────────────── */
+
+/* — Navbar — */
+@media (max-width: 768px) {
+  #navbar .max-w-7xl { padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* — Hero — */
+@media (max-width: 768px) {
+  #hero .max-w-7xl {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 2.5rem;
+  }
+
+  .hero-left {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-right {
+    order: 1;
+  }
+
+  .hero-heading {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+
+  .hero-btns {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .hero-btns .btn-primary,
+  .hero-btns .btn-outline {
+    padding: 0.65rem 1.3rem;
+    font-size: 0.875rem;
+    min-height: 44px;
+  }
+
+  .hero-social {
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .profile-wrapper {
+    width: clamp(200px, 60vw, 280px);
+    height: clamp(200px, 60vw, 280px);
+  }
+
+  .float-badge-ts    { left: -5%; }
+  .float-badge-react { left: -5%; }
+  .float-badge-php   { right: -5%; }
+
+  .scroll-indicator { display: none; }
+}
+
+/* — About — */
+@media (max-width: 768px) {
+  #about .max-w-7xl { padding-left: 1rem; padding-right: 1rem; }
+  #about .grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .stat-card { padding: 1.25rem 1rem; }
+  .stat-number { font-size: 2rem; }
+}
+
+/* — Projects — */
+@media (max-width: 768px) {
+  #projects .max-w-7xl { padding-left: 1rem; padding-right: 1rem; }
+  #projects .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  .project-img-wrap { height: 160px; }
+  .project-card-cta { min-height: 200px; }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  #projects .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* — Skills — */
+@media (max-width: 768px) {
+  #skills .max-w-7xl { padding-left: 1rem; padding-right: 1rem; }
+  #skills .grid { grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2.5rem; }
+  .tech-pill { font-size: 0.78rem; padding: 0.4rem 0.9rem; }
+}
+
+/* — Contact — */
+@media (max-width: 768px) {
+  #contact .max-w-4xl { padding-left: 1rem; padding-right: 1rem; }
+  #contact .grid { grid-template-columns: 1fr; gap: 2rem; margin-top: 2.5rem; }
+  .glass-card { padding: 1.25rem !important; }
+}
+
+/* — Footer — */
+@media (max-width: 768px) {
+  footer .max-w-7xl { padding-left: 1rem; padding-right: 1rem; flex-direction: column; text-align: center; gap: 0.75rem; }
+}
+
+/* — Section padding on small screens — */
+@media (max-width: 640px) {
+  .section-pad { padding: 4rem 0; }
+  .section-title { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+  #about .grid { gap: 2rem; margin-top: 2rem; }
+  #about .grid .grid { gap: 0.75rem; }
 }
